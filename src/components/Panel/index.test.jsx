@@ -1,13 +1,10 @@
 import React from 'react';
 import { create } from 'eslint-plugin-import/lib/rules/first';
-import App from './App';
+import Panel from './index';
 
-describe('App', () => {
+describe('Panel', () => {
   it('should render', () => {
-    // Arrange
-    const component = create(<App />);
-    // Act
-    // Asset
+    const component = create(<Panel />);
     expect(component).toMatchSnapshot();
   });
 });
