@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-import ResultDisplay from './ResultDisplay';
 import Panel from './Panel';
+import ResultDisplay from './ResultDisplay';
 
 export default function App() {
-  const [value, setValue] = useState('111');
+  const [value, setValue] = useState('0');
   function handleClick() {
-    setValue('777');
+    setValue('点击啦');
   }
 
   return (
     <section>
       <ResultDisplay value={value} />
-      {/* eslint-disable-next-line react/jsx-no-bind */}
       <Panel buttonClick={handleClick} />
     </section>
   );

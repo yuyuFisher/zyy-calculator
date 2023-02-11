@@ -29,6 +29,11 @@ export default function Panel({ buttonClick }) {
         <ButtonItem name="3" handleClick={buttonClick} />
         <ButtonItem name="+" handleClick={buttonClick} />
       </div>
+      <div>
+        <ButtonItem name="0" handleClick={buttonClick} />
+        <ButtonItem name="." handleClick={buttonClick} />
+        <ButtonItem name="=" handleClick={buttonClick} />
+      </div>
     </div>
   );
 }
