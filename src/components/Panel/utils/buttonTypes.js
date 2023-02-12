@@ -5,4 +5,4 @@ const BUTTON_TYPE = {
   EQUALS: 4,
 };
 
-export default { BUTTON_TYPE };
+export default BUTTON_TYPE;
