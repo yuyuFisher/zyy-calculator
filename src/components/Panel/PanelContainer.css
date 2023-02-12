@@ -1,0 +1,13 @@
+.calculator-panel-container {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.calculator-panel-container-cols2 {
+    width: 200px;
+}
+.calculator-panel-container-cols2 .calculator-panel-item {
+    border-radius: 100px;
+}
