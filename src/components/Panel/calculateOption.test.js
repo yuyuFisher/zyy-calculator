@@ -1,5 +1,5 @@
-import calculatorButtons from '../components/Panel/utils/calculatorButtons';
-import CalculatorHelper from '../components/Panel/utils/CalculatorHelper';
+import calculatorButtons from './utils/calculatorButtons';
+import CalculatorHelper from './utils/CalculatorHelper';
 
 // 方便查找，把按键转成Map结构
 const BUTTONS = calculatorButtons.reduce(
@@ -7,7 +7,7 @@ const BUTTONS = calculatorButtons.reduce(
   {},
 );
 
-describe('calculate', () => {
+describe('calculateOption', () => {
   // Arrange
   let result;
   const insert = new CalculatorHelper({
