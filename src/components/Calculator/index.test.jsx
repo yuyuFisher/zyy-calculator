@@ -1,11 +1,11 @@
 import React from 'react';
 import { create } from 'eslint-plugin-import/lib/rules/first';
-import App from './App';
+import Calculator from './index';
 
-describe('App', () => {
+describe('Calculator', () => {
   it('should render', () => {
     // Arrange
-    const component = create(<App />);
+    const component = create(<Calculator />);
     // Act
     // Asset
     expect(component).toMatchSnapshot();
