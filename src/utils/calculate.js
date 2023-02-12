@@ -3,6 +3,7 @@ const calculate = (a, b, operation) => {
   const numberB = Number(b);
 
   let ret;
+
   switch (operation) {
     case '+':
       ret = numberA + numberB;
@@ -10,7 +11,7 @@ const calculate = (a, b, operation) => {
     case '-':
       ret = numberA - numberB;
       break;
-    case '*':
+    case '×':
       ret = numberA * numberB;
       break;
     case '÷':

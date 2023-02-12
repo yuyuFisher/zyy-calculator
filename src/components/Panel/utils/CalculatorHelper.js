@@ -3,7 +3,7 @@ import BUTTON_TYPE from './buttonTypes';
 import toggleNumber from '../../../utils/toggleNumber';
 import appendNumber from '../../../utils/appendNumber';
 
-const isOperation = (key) => ['+', '-', '*', '÷'].includes(key);
+const isOperation = (key) => ['+', '-', '×', '÷'].includes(key);
 
 class CalculatorHelper {
   curOperand;

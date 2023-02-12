@@ -1,28 +1,36 @@
-import Calculate from './calculate';
+import calculatorButtons from '../components/Panel/utils/calculatorButtons';
+import CalculatorHelper from '../components/Panel/utils/CalculatorHelper';
+
+// 方便查找，把按键转成Map结构
+const BUTTONS = calculatorButtons.reduce(
+  (pre, cur) => ({ ...pre, [cur.label]: cur }),
+  {},
+);
 
 describe('calculate', () => {
   it('should correctly add', () => {
     // Arrange
-    const calculateList = ['4', '6', '+'];
+    let result;
+    const insert = new CalculatorHelper({
+      defaultValue: 123,
+      updateCallback: (ret) => (result = ret),
+    });
+    // Act
+    insert
+      .keyboardInput(BUTTONS['+'])
+      .keyboardInput(BUTTONS['5'])
+      .keyboardInput(BUTTONS['=']);
     // Asset
-    expect(Calculate(calculateList).equal(['6', '10', '+']));
-  });
-  it('should correctly decrease', () => {
-    // Arrange
-    const calculateList = ['4', '6', '-'];
+    expect(result).toEqual('128');
+    // Act
+    insert
+      .keyboardInput(BUTTONS['-'])
+      .keyboardInput(BUTTONS['-'])
+      .keyboardInput(BUTTONS['2'])
+      .keyboardInput(BUTTONS['8'])
+      .keyboardInput(BUTTONS['0'])
+      .keyboardInput(BUTTONS['=']);
     // Asset
-    expect(Calculate(calculateList).equal(['6', '-2', '-']));
-  });
-  it('should correctly multiply', () => {
-    // Arrange
-    const calculateList = ['4', '6', 'x'];
-    // Asset
-    expect(Calculate(calculateList).equal(['6', '24', 'x']));
-  });
-  it('should correctly divided', () => {
-    // Arrange
-    const calculateList = ['4', '6', '/'];
-    // Asset
-    expect(Calculate(calculateList).equal(['6', '0.66666666667', '/']));
+    expect(result).toEqual('-152');
   });
 });
