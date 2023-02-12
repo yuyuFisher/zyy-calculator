@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Panel from './Panel';
 import ResultDisplay from './ResultDisplay';
+import './App.css';
 
 export default function App() {
   const [value, setValue] = useState('0');
@@ -9,8 +10,8 @@ export default function App() {
   }
 
   return (
-    <section>
-      <ResultDisplay value={value} />
+    <section className="calculator">
+      <ResultDisplay result={value} />
       <Panel buttonClick={handleClick} />
     </section>
   );
