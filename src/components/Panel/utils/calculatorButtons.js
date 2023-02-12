@@ -9,7 +9,7 @@ const calculatorButtons = [
   { label: '7', type: BUTTON_TYPE.NUMBER },
   { label: '8', type: BUTTON_TYPE.NUMBER },
   { label: '9', type: BUTTON_TYPE.NUMBER },
-  { label: '*', type: BUTTON_TYPE.OPERATION },
+  { label: '×', type: BUTTON_TYPE.OPERATION },
 
   { label: '4', type: BUTTON_TYPE.NUMBER },
   { label: '5', type: BUTTON_TYPE.NUMBER },
@@ -26,4 +26,4 @@ const calculatorButtons = [
   { label: '=', type: BUTTON_TYPE.EQUALS },
 ];
 
-export default { calculatorButtons };
+export default calculatorButtons;
