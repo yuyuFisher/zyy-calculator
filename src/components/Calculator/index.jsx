@@ -5,31 +5,31 @@ import calculatorButtons from '../Panel/utils/calculatorButtons';
 import PanelContainer from '../Panel/PanelContainer';
 import './index.css';
 
-export default function Calculator({ defaultValue }) {
-  const [result, setResult] = useState('0');
-  const instanceRef = useRef();
+export default function Calculator({ defaultValue = '0' }) {
+  const [result, setResult] = useState(defaultValue);
   const [lastKeyDown, setLastKeyDown] = useState();
+  const instanceRef = useRef();
+
+  useEffect(() => {
+    const instance = new CalculatorHelper({
+      defaultValue,
+      updateCallback: (classResult, classLastKeyDown) => {
+        setResult(classResult);
+        setLastKeyDown(classLastKeyDown);
+      },
+    });
+    instanceRef.current = instance;
+  }, []);
 
   const handleClick = (keyItem) => {
     const instance = instanceRef.current;
     instance.keyboardInput(keyItem);
   };
 
-  useEffect(() => {
-    const instance = new CalculatorHelper({
-      defaultValue,
-      updateCallback: (_result, _lastKeyDown) => {
-        setResult(_result);
-        setLastKeyDown(_lastKeyDown);
-      },
-    });
-    instanceRef.current = instance;
-  }, []);
-
   return (
     <section className="calculator">
       <input className="calculator-result" value={result} disabled />
-      <section className="calculator-panel">
+      <section className="calculator-panel" data-testid="calculator-panel">
         {calculatorButtons.map((item) => (
           <PanelContainer
             key={item.label}

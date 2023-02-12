@@ -11,7 +11,7 @@ export default function PanelContainer({ item, onClick, lastKeyDown }) {
       className={classNames('calculator-panel-container', {
         'calculator-panel-container-cols2': item.columns === 2,
       })}
-      data-type={item.type}
+      key={item.label}
       data-testid={item.label}
       onClick={onClick}
     >
