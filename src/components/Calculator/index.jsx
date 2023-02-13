@@ -14,14 +14,13 @@ export default function Calculator({ defaultValue = '0' }) {
   const instanceRef = useRef();
 
   useEffect(() => {
-    const instance = new CalculatorHelper({
+    instanceRef.current = new CalculatorHelper({
       defaultValue,
       updateCallback: (helperResult, helperLastKeyDown) => {
         setResult(helperResult);
         setLastKeyDown(helperLastKeyDown);
       },
     });
-    instanceRef.current = instance;
   }, []);
 
   const handleClick = (keyItem) => {

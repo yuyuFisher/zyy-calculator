@@ -12,8 +12,8 @@
 }
 
 .calculator-panel-active {
-    background-color: #fff;
     color: #ff9f0c;
+    background-color: #fff;
 }
 
 .calculator-panel-action {
@@ -34,9 +34,12 @@
 
 .calculator-panel-operation {
     background: #ff9f0c;
-    font-size: 40px;
 }
 
 .calculator-panel-operation:hover {
     background-color: #ffbb54;
+}
+
+.calculator-panel-equals {
+    background-color: #ff9f0c;
 }

@@ -10,13 +10,15 @@ export default function PanelItem({ item, lastKeyDown }) {
   return (
     <div
       className={classNames('calculator-panel-item', {
-        'calculator-panel-active': item.type === BUTTON_TYPE.OPERATION
-            && item.label === lastKeyDown,
+        'calculator-panel-active':
+          item.type === BUTTON_TYPE.OPERATION
+          && item.label === lastKeyDown,
         'calculator-panel-action': item.type === BUTTON_TYPE.ACTION,
         'calculator-panel-number': item.type === BUTTON_TYPE.NUMBER,
         'calculator-panel-operation':
-                item.type === BUTTON_TYPE.OPERATION
-                || item.type === BUTTON_TYPE.EQUALS,
+          item.type === BUTTON_TYPE.OPERATION
+          && item.label !== lastKeyDown,
+        'calculator-panel-equals': item.type === BUTTON_TYPE.EQUALS,
       })}
     >
       {item.label}
