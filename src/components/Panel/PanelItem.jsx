@@ -1,8 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import BUTTON_TYPE from './utils/buttonTypes';
 import './PanelItem.css';
+
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
+
+import BUTTON_TYPE from '../../utils/buttonTypes';
 
 export default function PanelItem({ item, lastKeyDown }) {
   return (

@@ -1,9 +1,11 @@
-import classNames from 'classnames';
-import React from 'react';
-import PropTypes from 'prop-types';
-import PanelItem from './PanelItem';
-import BUTTON_TYPE from './utils/buttonTypes';
 import './PanelContainer.css';
+
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
+
+import BUTTON_TYPE from '../../utils/buttonTypes';
+import PanelItem from './PanelItem';
 
 export default function PanelContainer({ item, onClick, lastKeyDown }) {
   return (

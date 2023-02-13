@@ -1,7 +1,7 @@
-import calculate from '../../../utils/calculate';
+import appendNumber from './appendNumber';
 import BUTTON_TYPE from './buttonTypes';
-import toggleNumber from '../../../utils/toggleNumber';
-import appendNumber from '../../../utils/appendNumber';
+import calculate from './calculate';
+import toggleNumber from './toggleNumber';
 
 const isOperation = (key) => ['+', '-', '×', '÷'].includes(key);
 

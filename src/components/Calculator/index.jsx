@@ -1,10 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import './index.css';
+
 import PropTypes from 'prop-types';
-import CalculatorHelper from '../Panel/utils/CalculatorHelper';
-import calculatorButtons from '../Panel/utils/calculatorButtons';
+import React, { useEffect, useRef, useState } from 'react';
+
+import calculatorButtons from '../../utils/calculatorButtons';
+import CalculatorHelper from '../../utils/CalculatorHelper';
 import PanelContainer from '../Panel/PanelContainer';
 import ResultDisplay from '../ResultDisplay';
-import './index.css';
 
 export default function Calculator({ defaultValue = '0' }) {
   const [result, setResult] = useState(defaultValue);

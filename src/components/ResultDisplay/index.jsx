@@ -1,6 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import './index.css';
+
+import PropTypes from 'prop-types';
+import React from 'react';
 
 export default function ResultDisplay({ result }) {
   return (
