@@ -1,38 +1,38 @@
-import appendNumber from './appendNumber';
-import BUTTON_TYPE from './buttonTypes';
-import calculate from './calculate';
-import toggleNumber from './toggleNumber';
+import appendNumber from '../utils/appendNumber';
+import BUTTON_TYPE from '../utils/buttonTypes';
+import calculate from '../utils/calculate';
+import toggleNumber from '../utils/toggleNumber';
 
 const isOperation = (key) => ['+', '-', '×', '÷'].includes(key);
 
 class CalculatorHelper {
-  curOperand;
+  currentOperand;
 
   lastOperand = '';
 
   lastKeyDown = '';
 
-  classUpdateCallback;
+  helperUpdateCallback;
 
-  classProps;
+  helperProps;
 
   constructor(props = {}) {
-    this.curOperand = props.defaultValue || '0';
-    this.classUpdateCallback = props.updateCallback;
-    this.classProps = props || {};
+    this.currentOperand = props.defaultValue || '0';
+    this.helperUpdateCallback = props.updateCallback;
+    this.helperProps = props || {};
   }
 
-  classEmitUpdateCallback() {
-    if (this.classUpdateCallback instanceof Function) {
-      this.classUpdateCallback(this.curOperand, this.lastKeyDown);
+  helperEmitUpdateCallback() {
+    if (this.helperUpdateCallback instanceof Function) {
+      this.helperUpdateCallback(this.currentOperand, this.lastKeyDown);
     }
   }
 
   clear(emitUpdate = false) {
-    this.curOperand = this.classProps.defaultValue || '0';
+    this.currentOperand = this.helperProps.defaultValue || '0';
     this.lastOperand = '';
     this.lastKeyDown = '';
-    if (emitUpdate) this.classEmitUpdateCallback();
+    if (emitUpdate) this.helperEmitUpdateCallback();
   }
 
   doActionInput(keyItem) {
@@ -41,10 +41,10 @@ class CalculatorHelper {
         this.clear(false);
         break;
       case '+/-':
-        this.curOperand = toggleNumber(this.curOperand);
+        this.currentOperand = toggleNumber(this.currentOperand);
         break;
       case '%':
-        this.curOperand = calculate(this.curOperand, 100, '÷');
+        this.currentOperand = calculate(this.currentOperand, 100, '÷');
         break;
       default:
         break;
@@ -56,13 +56,13 @@ class CalculatorHelper {
       this.clear();
     }
 
-    let startNumber = this.curOperand;
+    let startNumber = this.currentOperand;
 
     if (isOperation(this.lastKeyDown)) {
       startNumber = '';
     }
 
-    this.curOperand = appendNumber(startNumber, keyItem.label);
+    this.currentOperand = appendNumber(startNumber, keyItem.label);
   }
 
   doOperationInput(keyItem) {
@@ -73,27 +73,27 @@ class CalculatorHelper {
 
     let result;
     if (this.lastOperand && this.operation) {
-      result = calculate(this.lastOperand, this.curOperand, this.operation);
+      result = calculate(this.lastOperand, this.currentOperand, this.operation);
     } else {
-      result = this.curOperand;
+      result = this.currentOperand;
     }
 
     this.lastOperand = result;
     this.operation = keyItem.label;
-    this.curOperand = result;
+    this.currentOperand = result;
   }
 
   doEqualsInput() {
     if (this.operation) {
       const result = calculate(
         this.lastOperand,
-        this.curOperand,
+        this.currentOperand,
         this.operation,
       );
 
       this.lastOperand = '';
       this.operation = '';
-      this.curOperand = result;
+      this.currentOperand = result;
     }
   }
 
@@ -115,7 +115,7 @@ class CalculatorHelper {
         break;
     }
     this.lastKeyDown = keyItem.label;
-    this.classEmitUpdateCallback();
+    this.helperEmitUpdateCallback();
     return this;
   }
 }

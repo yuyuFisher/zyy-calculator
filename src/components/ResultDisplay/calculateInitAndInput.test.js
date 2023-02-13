@@ -1,5 +1,5 @@
+import CalculatorHelper from '../../logics/CalculatorHelper';
 import calculatorButtons from '../../utils/calculatorButtons';
-import CalculatorHelper from '../../utils/CalculatorHelper';
 
 // 方便查找，把按键转成Map结构
 const BUTTONS = calculatorButtons.reduce(
@@ -10,8 +10,8 @@ const BUTTONS = calculatorButtons.reduce(
 describe('calculate', () => {
   it('should initially render', () => {
     const insert = new CalculatorHelper();
-    expect(insert.curOperand).toEqual('0');
-    expect(insert.classUpdateCallback).toEqual(undefined);
+    expect(insert.currentOperand).toEqual('0');
+    expect(insert.helperUpdateCallback).toEqual(undefined);
   });
   it('should input right in result box', () => {
     let result;

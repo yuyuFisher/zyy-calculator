@@ -3,8 +3,8 @@ import './index.css';
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 
+import CalculatorHelper from '../../logics/CalculatorHelper';
 import calculatorButtons from '../../utils/calculatorButtons';
-import CalculatorHelper from '../../utils/CalculatorHelper';
 import PanelContainer from '../Panel/PanelContainer';
 import ResultDisplay from '../ResultDisplay';
 
@@ -16,9 +16,9 @@ export default function Calculator({ defaultValue = '0' }) {
   useEffect(() => {
     const instance = new CalculatorHelper({
       defaultValue,
-      updateCallback: (classResult, classLastKeyDown) => {
-        setResult(classResult);
-        setLastKeyDown(classLastKeyDown);
+      updateCallback: (helperResult, helperLastKeyDown) => {
+        setResult(helperResult);
+        setLastKeyDown(helperLastKeyDown);
       },
     });
     instanceRef.current = instance;

@@ -1,5 +1,5 @@
+import CalculatorHelper from '../../logics/CalculatorHelper';
 import calculatorButtons from '../../utils/calculatorButtons';
-import CalculatorHelper from '../../utils/CalculatorHelper';
 
 // 方便查找，把按键转成Map结构
 const BUTTONS = calculatorButtons.reduce(
