@@ -3,13 +3,13 @@ const appendNumber = (number, appends) => {
     return number;
   }
 
-  let n = number;
+  let appendsNumber = number;
 
-  if (n === '0') {
-    n = '';
+  if (appendsNumber === '0') {
+    appendsNumber = '';
   }
 
-  return n + appends;
+  return appendsNumber + appends;
 };
 
 export default appendNumber;

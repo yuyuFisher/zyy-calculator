@@ -3,7 +3,10 @@ import calculatorButtons from '../../utils/calculatorButtons';
 
 // 方便查找，把按键转成Map结构
 const BUTTONS = calculatorButtons.reduce(
-  (pre, cur) => ({ ...pre, [cur.label]: cur }),
+  (previousButtons, currentButtons) => ({
+    ...previousButtons,
+    [currentButtons.label]: currentButtons,
+  }),
   {},
 );
 
@@ -16,7 +19,7 @@ describe('calculate', () => {
   it('should input right in result box', () => {
     let result;
     const insert = new CalculatorHelper({
-      updateCallback: (ret) => (result = ret),
+      updateCallback: (helperResult) => (result = helperResult),
     });
 
     insert

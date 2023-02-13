@@ -3,7 +3,10 @@ import calculatorButtons from '../../utils/calculatorButtons';
 
 // 方便查找，把按键转成Map结构
 const BUTTONS = calculatorButtons.reduce(
-  (pre, cur) => ({ ...pre, [cur.label]: cur }),
+  (previousButtons, currentButtons) => ({
+    ...previousButtons,
+    [currentButtons.label]: currentButtons,
+  }),
   {},
 );
 
@@ -11,7 +14,7 @@ describe('calculateAction', () => {
   // Arrange
   let result;
   const insert = new CalculatorHelper({
-    updateCallback: (ret) => (result = ret),
+    updateCallback: (helperResult) => (result = helperResult),
   });
 
   it('should make AC button action', () => {
@@ -39,7 +42,7 @@ describe('calculateAction', () => {
   it('should make % action', () => {
     const insertOfPercent = new CalculatorHelper({
       defaultValue: 123,
-      updateCallback: (ret) => (result = ret),
+      updateCallback: (helperResult) => (result = helperResult),
     });
     insertOfPercent.keyboardInput(BUTTONS['%']);
     expect(result).toEqual('1.23');
