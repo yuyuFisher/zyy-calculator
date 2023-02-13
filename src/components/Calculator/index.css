@@ -7,22 +7,6 @@
     padding-top: 24px;
 }
 
-.calculator-result {
-    width: 100%;
-    height: 70px;
-    max-height: 70px;
-    line-height: 60px;
-    border-width: 0;
-    text-align: right;
-    font-size: 60px;
-    color: #fff;
-    background-color: #000;
-    overflow-x: auto;
-    padding: 10px;
-    box-sizing: border-box;
-    white-space: nowrap;
-}
-
 .calculator-panel {
     width: 400px;
     display: flex;

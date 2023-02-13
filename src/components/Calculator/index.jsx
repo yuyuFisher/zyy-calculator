@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import CalculatorHelper from '../Panel/utils/CalculatorHelper';
 import calculatorButtons from '../Panel/utils/calculatorButtons';
 import PanelContainer from '../Panel/PanelContainer';
+import ResultDisplay from '../ResultDisplay';
 import './index.css';
 
 export default function Calculator({ defaultValue = '0' }) {
@@ -28,7 +29,7 @@ export default function Calculator({ defaultValue = '0' }) {
 
   return (
     <section className="calculator">
-      <input className="calculator-result" value={result} disabled />
+      <ResultDisplay result={result} />
       <section className="calculator-panel" data-testid="calculator-panel">
         {calculatorButtons.map((item) => (
           <PanelContainer
