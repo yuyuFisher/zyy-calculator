@@ -1,22 +1,14 @@
-import appendNumber from '../utils/appendNumber';
 import BUTTON_TYPE from '../utils/buttonTypes';
-import calculate from '../utils/calculate';
-import toggleNumber from '../utils/toggleNumber';
+import appendNumber from './appendNumber';
+import calculate from './calculate';
+import toggleNumber from './toggleNumber';
 
 const isOperation = (key) => ['+', '-', '×', '÷'].includes(key);
 
 class CalculatorHelper {
-  currentOperand;
-
-  lastOperand = '';
-
-  lastKeyDown = '';
-
-  helperUpdateCallback;
-
-  helperProps;
-
   constructor(props = {}) {
+    this.lastOperand = '';
+    this.lastKeyDown = '';
     this.currentOperand = props.defaultValue || '0';
     this.helperUpdateCallback = props.updateCallback;
     this.helperProps = props || {};
@@ -38,7 +30,7 @@ class CalculatorHelper {
   doActionInput(keyItem) {
     switch (keyItem.label) {
       case 'AC':
-        this.clear(false);
+        this.clear(true);
         break;
       case '+/-':
         this.currentOperand = toggleNumber(this.currentOperand);
@@ -66,7 +58,6 @@ class CalculatorHelper {
   }
 
   doOperationInput(keyItem) {
-    // Repeat input
     if (this.lastKeyDown === keyItem.label) {
       return;
     }

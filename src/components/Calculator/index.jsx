@@ -24,8 +24,7 @@ export default function Calculator({ defaultValue = '0' }) {
   }, []);
 
   const handleClick = (keyItem) => {
-    const instance = instanceRef.current;
-    instance.keyboardInput(keyItem);
+    instanceRef.current.keyboardInput(keyItem);
   };
 
   return (
