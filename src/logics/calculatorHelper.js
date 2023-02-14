@@ -11,7 +11,6 @@ class CalculatorHelper {
     this.lastKeyDown = '';
     this.currentOperand = props.defaultValue || '0';
     this.helperUpdateCallback = props.updateCallback;
-    this.helperProps = props || {};
   }
 
   helperEmitUpdateCallback() {
@@ -20,11 +19,10 @@ class CalculatorHelper {
     }
   }
 
-  clear(emitUpdate = false) {
+  clear() {
     this.currentOperand = '0';
     this.lastOperand = '';
     this.lastKeyDown = '';
-    if (emitUpdate) this.helperEmitUpdateCallback();
   }
 
   doActionInput(keyItem) {
