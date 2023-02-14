@@ -20,19 +20,19 @@ describe('Calculator', () => {
   });
 
   describe('ACTIONS', () => {
-    beforeEach(() => { render(<Calculator defaultValue="50" />); });
+    beforeEach(() => { render(<Calculator defaultValue="12" />); });
 
     it('should correctly evenly divisible', () => {
       userEvent.click(screen.getByTestId('%'));
-      expect(screen.getByTestId('calculator-result')).toHaveTextContent('0.5');
+      expect(screen.getByTestId('calculator-result')).toHaveTextContent('0.12');
     });
 
     it('should correctly reconciliation', () => {
       userEvent.click(screen.getByTestId('+/-'));
-      expect(screen.getByTestId('calculator-result')).toHaveTextContent('-50');
+      expect(screen.getByTestId('calculator-result')).toHaveTextContent('-12');
     });
 
-    it('should correctly clear', async () => {
+    it('should correctly clear', () => {
       userEvent.click(screen.getByTestId('AC'));
       expect(screen.getByTestId('calculator-result')).toHaveTextContent('0');
     });

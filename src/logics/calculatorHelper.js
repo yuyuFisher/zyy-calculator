@@ -21,7 +21,7 @@ class CalculatorHelper {
   }
 
   clear(emitUpdate = false) {
-    this.currentOperand = this.helperProps.defaultValue || '0';
+    this.currentOperand = '0';
     this.lastOperand = '';
     this.lastKeyDown = '';
     if (emitUpdate) this.helperEmitUpdateCallback();
@@ -30,7 +30,7 @@ class CalculatorHelper {
   doActionInput(keyItem) {
     switch (keyItem.label) {
       case 'AC':
-        this.clear(true);
+        this.clear();
         break;
       case '+/-':
         this.currentOperand = toggleNumber(this.currentOperand);
