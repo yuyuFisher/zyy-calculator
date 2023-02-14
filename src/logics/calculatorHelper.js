@@ -1,6 +1,6 @@
 import BUTTON_TYPE from '../utils/buttonTypes';
-import appendNumber from './appendNumber';
 import calculate from './calculate';
+import numberAppend from './numberAppend';
 import toggleNumber from './toggleNumber';
 
 const isOperation = (key) => ['+', '-', '×', '÷'].includes(key);
@@ -8,8 +8,8 @@ const isOperation = (key) => ['+', '-', '×', '÷'].includes(key);
 class CalculatorHelper {
   constructor(props = {}) {
     this.lastOperand = ''; // 上一次操作数值
-    this.lastKeyDown = ''; // 上一次按键
     this.currentOperand = props.defaultValue || '0'; // 当前操作数值
+    this.lastKeyDown = ''; // 上一次按键
     this.helperUpdateCallback = props.updateCallback;
   }
 
@@ -52,7 +52,7 @@ class CalculatorHelper {
       startNumber = '';
     }
 
-    this.currentOperand = appendNumber(startNumber, keyItem.label);
+    this.currentOperand = numberAppend(startNumber, keyItem.label);
   }
 
   doOperationInput(keyItem) {
