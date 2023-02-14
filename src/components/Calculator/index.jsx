@@ -3,7 +3,7 @@ import './index.css';
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 
-import CalculatorHelper from '../../logics/CalculatorHelper';
+import CalculatorHelper from '../../logics/calculatorHelper';
 import calculatorButtons from '../../utils/calculatorButtons';
 import PanelContainer from '../Panel/PanelContainer';
 import ResultDisplay from '../ResultDisplay';

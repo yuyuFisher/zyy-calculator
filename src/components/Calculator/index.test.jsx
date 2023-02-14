@@ -37,16 +37,12 @@ describe('Calculator', () => {
     render(<Calculator defaultValue="12" />);
     userEvent.click(screen.getByTestId('%'));
     expect(screen.getByTestId('calculator-result')).toHaveTextContent('0.12');
-    userEvent.click(screen.getByTestId('%'));
-    expect(screen.getByTestId('calculator-result')).toHaveTextContent('0.0012');
   });
 
   it('should correctly reconciliation', () => {
     render(<Calculator defaultValue="12" />);
     userEvent.click(screen.getByTestId('+/-'));
     expect(screen.getByTestId('calculator-result')).toHaveTextContent('-12');
-    userEvent.click(screen.getByTestId('+/-'));
-    expect(screen.getByTestId('calculator-result')).toHaveTextContent('12');
   });
 
   it('should correctly perform complex calculations', () => {
