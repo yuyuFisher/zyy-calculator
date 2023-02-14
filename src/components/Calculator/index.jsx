@@ -11,10 +11,10 @@ import ResultDisplay from '../ResultDisplay';
 export default function Calculator({ defaultValue = '0' }) {
   const [result, setResult] = useState(defaultValue);
   const [lastKeyDown, setLastKeyDown] = useState();
-  const instanceRef = useRef();
+  const HelperInstanceRef = useRef();
 
   useEffect(() => {
-    instanceRef.current = new CalculatorHelper({
+    HelperInstanceRef.current = new CalculatorHelper({
       defaultValue,
       updateCallback: (helperResult, helperLastKeyDown) => {
         setResult(helperResult);
@@ -24,7 +24,7 @@ export default function Calculator({ defaultValue = '0' }) {
   }, []);
 
   const handleClick = (keyItem) => {
-    instanceRef.current.keyboardInput(keyItem);
+    HelperInstanceRef.current.keyboardInput(keyItem);
   };
 
   return (
