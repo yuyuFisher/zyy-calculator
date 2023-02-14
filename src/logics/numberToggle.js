@@ -1,4 +1,4 @@
-const toggleNumber = (value) => {
+const numberToggle = (value) => {
   if (Number(value) === 0) return value;
   if (String(value).startsWith('-')) {
     return String(value).substring(1);
@@ -6,4 +6,4 @@ const toggleNumber = (value) => {
   return `-${value}`;
 };
 
-export default toggleNumber;
+export default numberToggle;

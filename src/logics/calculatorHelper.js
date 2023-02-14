@@ -1,7 +1,7 @@
 import BUTTON_TYPE from '../utils/buttonTypes';
 import calculate from './calculate';
 import numberAppend from './numberAppend';
-import toggleNumber from './toggleNumber';
+import numberToggle from './numberToggle';
 
 const isOperation = (key) => ['+', '-', '×', '÷'].includes(key);
 
@@ -31,7 +31,7 @@ class CalculatorHelper {
         this.clear();
         break;
       case '+/-':
-        this.currentOperand = toggleNumber(this.currentOperand);
+        this.currentOperand = numberToggle(this.currentOperand);
         break;
       case '%':
         this.currentOperand = calculate(this.currentOperand, 100, '÷');
