@@ -11,20 +11,22 @@ const BUTTONS = calculatorButtons.reduce(
 );
 
 describe('calculateHelper', () => {
+  // Arrange
+  let result;
+  let insert;
   describe('render and input', () => {
+    beforeEach(() => { insert = new CalculatorHelper(); });
+
     it('should help initially render', () => {
-      const insert = new CalculatorHelper();
       expect(insert.helperUpdateCallback).toEqual(undefined);
     });
 
     it('should help initially render', () => {
-      const insert = new CalculatorHelper();
       expect(insert.currentOperand).toEqual('0');
     });
 
     it('should help input right in result box', () => {
-      let result;
-      const insert = new CalculatorHelper({
+      insert = new CalculatorHelper({
         updateCallback: (helperResult) => (result = helperResult),
       });
 
@@ -40,10 +42,10 @@ describe('calculateHelper', () => {
   });
 
   describe('ACTIONS', () => {
-    // Arrange
-    let result;
-    const insert = new CalculatorHelper({
-      updateCallback: (helperResult) => (result = helperResult),
+    beforeEach(() => {
+      insert = new CalculatorHelper({
+        updateCallback: (helperResult) => (result = helperResult),
+      });
     });
 
     it('should make AC button action', () => {
@@ -76,11 +78,11 @@ describe('calculateHelper', () => {
   });
 
   describe('OPTIONS', () => {
-    // Arrange
-    let result;
-    const insert = new CalculatorHelper({
-      defaultValue: 123,
-      updateCallback: (helperResult) => (result = helperResult),
+    beforeEach(() => {
+      insert = new CalculatorHelper({
+        defaultValue: 123,
+        updateCallback: (helperResult) => (result = helperResult),
+      });
     });
 
     it('should correctly add', () => {
@@ -102,7 +104,7 @@ describe('calculateHelper', () => {
         .keyboardInput(BUTTONS['-'])
         .keyboardInput(BUTTONS['5'])
         .keyboardInput(BUTTONS['=']);
-      expect(result).toEqual('238.5');
+      expect(result).toEqual('118');
     });
 
     it('should correctly multiply', () => {
@@ -110,16 +112,16 @@ describe('calculateHelper', () => {
         .keyboardInput(BUTTONS['×'])
         .keyboardInput(BUTTONS['2'])
         .keyboardInput(BUTTONS['=']);
-      expect(result).toEqual('477');
+      expect(result).toEqual('246');
     });
 
     it('should correctly divide', () => {
       insert
         .keyboardInput(BUTTONS['÷'])
-        .keyboardInput(BUTTONS['4'])
-        .keyboardInput(BUTTONS['7'])
+        .keyboardInput(BUTTONS['1'])
+        .keyboardInput(BUTTONS['2'])
         .keyboardInput(BUTTONS['.'])
-        .keyboardInput(BUTTONS['7'])
+        .keyboardInput(BUTTONS['3'])
         .keyboardInput(BUTTONS['=']);
       expect(result).toEqual('10');
     });
