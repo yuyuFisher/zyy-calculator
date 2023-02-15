@@ -31,11 +31,7 @@ export default function Calculator({ defaultValue = '0' }) {
         {calculatorButtons.map((item) => (
           <PanelContainer
             key={item.label}
-            item={{
-              label: item.label,
-              type: item.type,
-              columns: item.columns,
-            }}
+            item={item}
             onClick={() => handleClick(item)}
             lastKeyDown={lastKeyDownResult}
           />

@@ -18,11 +18,7 @@ export default function PanelContainer({ item, onClick, lastKeyDown }) {
       onClick={onClick}
     >
       <PanelItem
-        item={{
-          label: item.label,
-          type: item.type,
-          columns: item.columns,
-        }}
+        item={item}
         lastKeyDown={lastKeyDown}
       />
     </div>
