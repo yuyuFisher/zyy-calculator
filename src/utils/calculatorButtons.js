@@ -1,6 +1,6 @@
 import BUTTON_TYPE from './buttonTypes';
 
-const calculatorButtons = [
+const CALCULATE_BUTTON = [
   { label: 'AC', type: BUTTON_TYPE.ACTION },
   { label: '+/-', type: BUTTON_TYPE.ACTION },
   { label: '%', type: BUTTON_TYPE.ACTION },
@@ -26,4 +26,4 @@ const calculatorButtons = [
   { label: '=', type: BUTTON_TYPE.EQUALS },
 ];
 
-export default calculatorButtons;
+export default CALCULATE_BUTTON;

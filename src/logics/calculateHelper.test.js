@@ -1,8 +1,8 @@
-import calculatorButtons from '../utils/calculatorButtons';
+import CALCULATE_BUTTON from '../utils/calculatorButtons';
 import CalculatorHelper from './calculatorHelper';
 
 // 方便查找，把按键转成Map结构
-const BUTTONS = calculatorButtons.reduce(
+const BUTTONS = CALCULATE_BUTTON.reduce(
   (previousButtons, currentButtons) => ({
     ...previousButtons,
     [currentButtons.label]: currentButtons,

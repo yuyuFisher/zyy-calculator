@@ -3,7 +3,7 @@ import './index.css';
 import React, { useEffect, useRef, useState } from 'react';
 
 import CalculatorHelper from '../../logics/calculatorHelper';
-import calculatorButtons from '../../utils/calculatorButtons';
+import CALCULATE_BUTTON from '../../utils/calculatorButtons';
 import PanelContainer from '../Panel/PanelContainer';
 import ResultDisplay from '../ResultDisplay';
 
@@ -27,7 +27,7 @@ export default function Calculator() {
     <section className="calculator">
       <ResultDisplay result={result} />
       <section className="calculator-panel" data-testid="calculator-panel">
-        {calculatorButtons.map((item) => (
+        {CALCULATE_BUTTON.map((item) => (
           <PanelContainer
             key={item.label}
             item={item}
