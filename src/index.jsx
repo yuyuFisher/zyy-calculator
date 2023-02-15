@@ -8,6 +8,6 @@ import Calculator from './components/Calculator';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Calculator defaultValue="0" />
+    <Calculator />
   </React.StrictMode>,
 );

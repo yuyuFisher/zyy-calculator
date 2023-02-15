@@ -1,6 +1,5 @@
 import './index.css';
 
-import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 
 import CalculatorHelper from '../../logics/calculatorHelper';
@@ -8,8 +7,8 @@ import calculatorButtons from '../../utils/calculatorButtons';
 import PanelContainer from '../Panel/PanelContainer';
 import ResultDisplay from '../ResultDisplay';
 
-export default function Calculator({ defaultValue = '0' }) {
-  const [result, setResult] = useState(defaultValue);
+export default function Calculator() {
+  const [result, setResult] = useState('0');
   const [lastKeyDownResult, setLastKeyDownResult] = useState();
   const helperInstanceRef = useRef();
 
@@ -40,7 +39,3 @@ export default function Calculator({ defaultValue = '0' }) {
     </section>
   );
 }
-
-Calculator.propTypes = {
-  defaultValue: PropTypes.string,
-};

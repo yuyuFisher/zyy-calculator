@@ -6,9 +6,9 @@ import numberToggle from './numberToggle';
 const isOperation = (key) => ['+', '-', '×', '÷'].includes(key);
 
 class CalculatorHelper {
-  constructor(props = {}) {
+  constructor() {
     this.lastOperand = '';
-    this.currentOperand = props.defaultValue || '0';
+    this.currentOperand = '0';
     this.lastKeyDown = '';
   }
 

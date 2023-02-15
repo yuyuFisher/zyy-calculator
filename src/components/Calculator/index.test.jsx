@@ -12,15 +12,14 @@ describe('Calculator', () => {
       const c1 = render(<Calculator />);
       expect(c1.getByTestId('calculator-result')).toHaveTextContent('0');
     });
-
-    it('should render correctly when have props', () => {
-      const c1 = render(<Calculator defaultValue="123456" />);
-      expect(c1.getByTestId('calculator-result')).toHaveTextContent('123456');
-    });
   });
 
   describe('ACTIONS', () => {
-    beforeEach(() => { render(<Calculator defaultValue="12" />); });
+    beforeEach(() => {
+      render(<Calculator />);
+      userEvent.click(screen.getByTestId('1'));
+      userEvent.click(screen.getByTestId('2'));
+    });
 
     it('should correctly evenly divisible', () => {
       userEvent.click(screen.getByTestId('%'));
