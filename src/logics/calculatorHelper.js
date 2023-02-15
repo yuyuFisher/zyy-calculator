@@ -7,16 +7,9 @@ const isOperation = (key) => ['+', '-', '×', '÷'].includes(key);
 
 class CalculatorHelper {
   constructor(props = {}) {
-    this.lastOperand = ''; // 上一次操作数值
-    this.currentOperand = props.defaultValue || '0'; // 当前操作数值
-    this.lastKeyDown = ''; // 上一次按键
-    this.helperUpdateCallback = props.updateCallback;
-  }
-
-  helperEmitUpdateCallback() {
-    if (this.helperUpdateCallback instanceof Function) {
-      this.helperUpdateCallback(this.currentOperand, this.lastKeyDown);
-    }
+    this.lastOperand = '';
+    this.currentOperand = props.defaultValue || '0';
+    this.lastKeyDown = '';
   }
 
   clear() {
@@ -56,7 +49,6 @@ class CalculatorHelper {
   }
 
   doOperationInput(keyItem) {
-    // 连续operation只处理一次
     if (this.lastKeyDown === keyItem.label) {
       return;
     }
@@ -105,7 +97,6 @@ class CalculatorHelper {
         break;
     }
     this.lastKeyDown = keyItem.label;
-    this.helperEmitUpdateCallback();
     return this;
   }
 }
