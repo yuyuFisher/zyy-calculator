@@ -20,6 +20,7 @@ module.exports = {
     'no-undef': 0,
     'import/no-extraneous-dependencies': 0,
     'react/require-default-props': 0,
+    'react/no-unstable-nested-components': 0,
     'react/jsx-no-bind': 0,
     'jsx-a11y/click-events-have-key-events': 0,
     'jsx-a11y/no-static-element-interactions': 0,

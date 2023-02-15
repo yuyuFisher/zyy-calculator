@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 
-import Calculator from './index';
+import Calculator from './Calculator';
 
 describe('Calculator', () => {
   describe('render', () => {
