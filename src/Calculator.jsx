@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import CalculatorUI from './components/CalculatorUI';
-import PanelContainer from './components/Panel/PanelContainer';
 import CalculatorHelper from './logics/calculatorHelper';
 
 export default function Calculator() {
@@ -23,14 +22,8 @@ export default function Calculator() {
   return (
     <CalculatorUI
       result={result}
-      resultsToItem={(item) => (
-        <PanelContainer
-          key={item.label}
-          item={item}
-          onClick={() => handleClick(item)}
-          lastKeyDown={lastKeyDownResult}
-        />
-      )}
+      onClick={handleClick}
+      lastKeyDownResult={lastKeyDownResult}
     />
   );
 }

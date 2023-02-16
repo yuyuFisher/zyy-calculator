@@ -4,14 +4,22 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import CALCULATE_BUTTON from '../../utils/calculatorButtons';
+import PanelContainer from '../Panel/PanelContainer';
 import ResultDisplay from '../ResultDisplay';
 
-export default function CalculatorUI({ result, resultsToItem }) {
+export default function CalculatorUI({ result, onClick, lastKeyDownResult }) {
   return (
     <section className="calculator">
       <ResultDisplay result={result} />
       <section className="calculator-panel" data-testid="calculator-panel">
-        {CALCULATE_BUTTON.map(resultsToItem)}
+        {CALCULATE_BUTTON.map((item) => (
+          <PanelContainer
+            key={item.label}
+            item={item}
+            onClick={() => onClick(item)}
+            lastKeyDown={lastKeyDownResult}
+          />
+        ))}
       </section>
     </section>
   );
@@ -19,5 +27,6 @@ export default function CalculatorUI({ result, resultsToItem }) {
 
 CalculatorUI.propTypes = {
   result: PropTypes.string,
-  resultsToItem: PropTypes.func,
+  onClick: PropTypes.func,
+  lastKeyDownResult: PropTypes.string,
 };
