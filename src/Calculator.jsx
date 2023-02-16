@@ -23,7 +23,7 @@ export default function Calculator() {
   return (
     <CalculatorUI
       result={result}
-      callbackFn={(item) => (
+      resultsToItem={(item) => (
         <PanelContainer
           key={item.label}
           item={item}

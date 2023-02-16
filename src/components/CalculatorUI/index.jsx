@@ -6,12 +6,12 @@ import React from 'react';
 import CALCULATE_BUTTON from '../../utils/calculatorButtons';
 import ResultDisplay from '../ResultDisplay';
 
-export default function CalculatorUI({ result, callbackFn }) {
+export default function CalculatorUI({ result, resultsToItem }) {
   return (
     <section className="calculator">
       <ResultDisplay result={result} />
       <section className="calculator-panel" data-testid="calculator-panel">
-        {CALCULATE_BUTTON.map(callbackFn)}
+        {CALCULATE_BUTTON.map(resultsToItem)}
       </section>
     </section>
   );
@@ -19,5 +19,5 @@ export default function CalculatorUI({ result, callbackFn }) {
 
 CalculatorUI.propTypes = {
   result: PropTypes.string,
-  callbackFn: PropTypes.func,
+  resultsToItem: PropTypes.func,
 };
