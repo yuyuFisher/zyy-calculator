@@ -22,6 +22,7 @@ describe('calculateHelper', () => {
     it('should help initially render', () => {
       expect(insert.currentOperand).toEqual('0');
     });
+
     it('should help input right in result box', () => {
       insert
         .keyboardInput(BUTTONS['3'])

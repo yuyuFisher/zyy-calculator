@@ -7,16 +7,16 @@ import React from 'react';
 import Calculator from './Calculator';
 
 describe('Calculator', () => {
+  beforeEach(() => { render(<Calculator />); });
+
   describe('render', () => {
     it('should render correctly', () => {
-      const c1 = render(<Calculator />);
-      expect(c1.getByTestId('calculator-result')).toHaveTextContent('0');
+      expect(screen.getByTestId('calculator-result')).toHaveTextContent('0');
     });
   });
 
   describe('ACTIONS', () => {
     beforeEach(() => {
-      render(<Calculator />);
       userEvent.click(screen.getByTestId('1'));
       userEvent.click(screen.getByTestId('2'));
     });
@@ -38,8 +38,6 @@ describe('Calculator', () => {
   });
 
   describe('response and complex calculations', () => {
-    beforeEach(() => { render(<Calculator />); });
-
     it('should correctly response to panel item', () => {
       userEvent.click(screen.getByTestId('7'));
       userEvent.click(screen.getByTestId('8'));
