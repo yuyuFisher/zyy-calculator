@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import CalculatorUI from './components/CalculatorUI';
 import CalculatorHelper from './logics/calculatorHelper';
@@ -6,11 +6,7 @@ import CalculatorHelper from './logics/calculatorHelper';
 export default function Calculator() {
   const [result, setResult] = useState('0');
   const [lastKeyDownResult, setLastKeyDownResult] = useState();
-  const helperInstanceRef = useRef();
-
-  useEffect(() => {
-    helperInstanceRef.current = new CalculatorHelper();
-  }, []);
+  const helperInstanceRef = useRef(new CalculatorHelper());
 
   const handleClick = (keyItem) => {
     helperInstanceRef.current.keyboardInput(keyItem);
