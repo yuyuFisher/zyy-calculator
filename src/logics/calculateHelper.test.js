@@ -13,55 +13,55 @@ const BUTTONS = CALCULATE_BUTTON.reduce(
 describe('calculateHelper', () => {
   // Arrange
   let result;
-  let insert;
+  let calculatorHelper;
   beforeEach(() => {
-    insert = new CalculatorHelper();
+    calculatorHelper = new CalculatorHelper();
   });
 
   describe('render and input', () => {
     it('should help initially render', () => {
-      expect(insert.currentOperand).toEqual('0');
+      expect(calculatorHelper.currentOperand).toEqual('0');
     });
 
     it('should help input right in result box', () => {
-      insert
+      calculatorHelper
         .keyboardInput(BUTTONS['3'])
         .keyboardInput(BUTTONS['7']);
-      result = insert.currentOperand;
+      result = calculatorHelper.currentOperand;
       expect(result).toEqual('37');
     });
   });
 
   describe('ACTIONS', () => {
     beforeEach(() => {
-      insert
+      calculatorHelper
         .keyboardInput(BUTTONS['1'])
         .keyboardInput(BUTTONS['2'])
         .keyboardInput(BUTTONS['3']);
     });
 
     it('should make AC button action', () => {
-      insert.keyboardInput(BUTTONS.AC);
-      result = insert.currentOperand;
+      calculatorHelper.keyboardInput(BUTTONS.AC);
+      result = calculatorHelper.currentOperand;
       expect(result).toEqual('0');
     });
 
     it('should make +/- button action', () => {
-      insert.keyboardInput(BUTTONS['+/-']);
-      result = insert.currentOperand;
+      calculatorHelper.keyboardInput(BUTTONS['+/-']);
+      result = calculatorHelper.currentOperand;
       expect(result).toEqual('-123');
     });
 
     it('should make % action', () => {
-      insert.keyboardInput(BUTTONS['%']);
-      result = insert.currentOperand;
+      calculatorHelper.keyboardInput(BUTTONS['%']);
+      result = calculatorHelper.currentOperand;
       expect(result).toEqual('1.23');
     });
   });
 
   describe('OPTIONS', () => {
     beforeEach(() => {
-      insert
+      calculatorHelper
         .keyboardInput(BUTTONS['2'])
         .keyboardInput(BUTTONS['0'])
         .keyboardInput(BUTTONS['.'])
@@ -69,7 +69,7 @@ describe('calculateHelper', () => {
     });
 
     it('should correctly add', () => {
-      insert
+      calculatorHelper
         .keyboardInput(BUTTONS['+'])
         .keyboardInput(BUTTONS['1'])
         .keyboardInput(BUTTONS['1'])
@@ -77,34 +77,34 @@ describe('calculateHelper', () => {
         .keyboardInput(BUTTONS['.'])
         .keyboardInput(BUTTONS['4'])
         .keyboardInput(BUTTONS['=']);
-      result = insert.currentOperand;
+      result = calculatorHelper.currentOperand;
       expect(result).toEqual('132.9');
     });
 
     it('should correctly decrease', () => {
-      insert
+      calculatorHelper
         .keyboardInput(BUTTONS['-'])
         .keyboardInput(BUTTONS['5'])
         .keyboardInput(BUTTONS['=']);
-      result = insert.currentOperand;
+      result = calculatorHelper.currentOperand;
       expect(result).toEqual('15.5');
     });
 
     it('should correctly multiply', () => {
-      insert
+      calculatorHelper
         .keyboardInput(BUTTONS['×'])
         .keyboardInput(BUTTONS['3'])
         .keyboardInput(BUTTONS['=']);
-      result = insert.currentOperand;
+      result = calculatorHelper.currentOperand;
       expect(result).toEqual('61.5');
     });
 
     it('should correctly divide', () => {
-      insert
+      calculatorHelper
         .keyboardInput(BUTTONS['÷'])
         .keyboardInput(BUTTONS['5'])
         .keyboardInput(BUTTONS['=']);
-      result = insert.currentOperand;
+      result = calculatorHelper.currentOperand;
       expect(result).toEqual('4.1');
     });
   });
