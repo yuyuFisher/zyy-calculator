@@ -1,14 +1,4 @@
-import CALCULATE_BUTTON from '../utils/calculatorButtons';
 import CalculatorHelper from './calculatorHelper';
-
-// 方便查找，把按键转成Map结构
-const BUTTONS = CALCULATE_BUTTON.reduce(
-  (previousButtons, currentButtons) => ({
-    ...previousButtons,
-    [currentButtons.label]: currentButtons,
-  }),
-  {},
-);
 
 describe('calculateHelper', () => {
   // Arrange
@@ -25,8 +15,8 @@ describe('calculateHelper', () => {
 
     it('should help input right in result box', () => {
       calculatorHelper
-        .keyboardInput(BUTTONS['3'])
-        .keyboardInput(BUTTONS['7']);
+        .keyboardInput('3')
+        .keyboardInput('7');
       result = calculatorHelper.currentOperand;
       expect(result).toEqual('37');
     });
@@ -35,25 +25,25 @@ describe('calculateHelper', () => {
   describe('ACTIONS', () => {
     beforeEach(() => {
       calculatorHelper
-        .keyboardInput(BUTTONS['1'])
-        .keyboardInput(BUTTONS['2'])
-        .keyboardInput(BUTTONS['3']);
+        .keyboardInput('1')
+        .keyboardInput('2')
+        .keyboardInput('3');
     });
 
     it('should make AC button action', () => {
-      calculatorHelper.keyboardInput(BUTTONS.AC);
+      calculatorHelper.keyboardInput('AC');
       result = calculatorHelper.currentOperand;
       expect(result).toEqual('0');
     });
 
     it('should make +/- button action', () => {
-      calculatorHelper.keyboardInput(BUTTONS['+/-']);
+      calculatorHelper.keyboardInput('+/-');
       result = calculatorHelper.currentOperand;
       expect(result).toEqual('-123');
     });
 
     it('should make % action', () => {
-      calculatorHelper.keyboardInput(BUTTONS['%']);
+      calculatorHelper.keyboardInput('%');
       result = calculatorHelper.currentOperand;
       expect(result).toEqual('1.23');
     });
@@ -62,48 +52,48 @@ describe('calculateHelper', () => {
   describe('OPTIONS', () => {
     beforeEach(() => {
       calculatorHelper
-        .keyboardInput(BUTTONS['2'])
-        .keyboardInput(BUTTONS['0'])
-        .keyboardInput(BUTTONS['.'])
-        .keyboardInput(BUTTONS['5']);
+        .keyboardInput('2')
+        .keyboardInput('0')
+        .keyboardInput('.')
+        .keyboardInput('5');
     });
 
     it('should correctly add', () => {
       calculatorHelper
-        .keyboardInput(BUTTONS['+'])
-        .keyboardInput(BUTTONS['1'])
-        .keyboardInput(BUTTONS['1'])
-        .keyboardInput(BUTTONS['2'])
-        .keyboardInput(BUTTONS['.'])
-        .keyboardInput(BUTTONS['4'])
-        .keyboardInput(BUTTONS['=']);
+        .keyboardInput('+')
+        .keyboardInput('1')
+        .keyboardInput('1')
+        .keyboardInput('2')
+        .keyboardInput('.')
+        .keyboardInput('4')
+        .keyboardInput('=');
       result = calculatorHelper.currentOperand;
       expect(result).toEqual('132.9');
     });
 
     it('should correctly decrease', () => {
       calculatorHelper
-        .keyboardInput(BUTTONS['-'])
-        .keyboardInput(BUTTONS['5'])
-        .keyboardInput(BUTTONS['=']);
+        .keyboardInput('-')
+        .keyboardInput('5')
+        .keyboardInput('=');
       result = calculatorHelper.currentOperand;
       expect(result).toEqual('15.5');
     });
 
     it('should correctly multiply', () => {
       calculatorHelper
-        .keyboardInput(BUTTONS['×'])
-        .keyboardInput(BUTTONS['3'])
-        .keyboardInput(BUTTONS['=']);
+        .keyboardInput('×')
+        .keyboardInput('3')
+        .keyboardInput('=');
       result = calculatorHelper.currentOperand;
       expect(result).toEqual('61.5');
     });
 
     it('should correctly divide', () => {
       calculatorHelper
-        .keyboardInput(BUTTONS['÷'])
-        .keyboardInput(BUTTONS['5'])
-        .keyboardInput(BUTTONS['=']);
+        .keyboardInput('÷')
+        .keyboardInput('5')
+        .keyboardInput('=');
       result = calculatorHelper.currentOperand;
       expect(result).toEqual('4.1');
     });

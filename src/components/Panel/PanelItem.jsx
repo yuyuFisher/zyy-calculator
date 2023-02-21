@@ -6,35 +6,33 @@ import React from 'react';
 
 import BUTTON_TYPE from '../../utils/buttonTypes';
 
-export default function PanelItem({ item, lastKeyDown }) {
+export default function PanelItem({ item, type, lastKeyDown }) {
   return (
     <div
       className={classNames('calculator-panel-item', {
         'calculator-panel-active':
-          item.type === BUTTON_TYPE.OPERATION
-          && item.label === lastKeyDown,
-        'calculator-panel-action': item.type === BUTTON_TYPE.ACTION,
-        'calculator-panel-number': item.type === BUTTON_TYPE.NUMBER,
+          type === BUTTON_TYPE.OPERATION
+          && item === lastKeyDown,
+        'calculator-panel-action': type === BUTTON_TYPE.ACTION,
+        'calculator-panel-number': type === BUTTON_TYPE.NUMBER,
         'calculator-panel-operation':
-          item.type === BUTTON_TYPE.OPERATION
-          && item.label !== lastKeyDown,
-        'calculator-panel-equals': item.type === BUTTON_TYPE.EQUALS,
+          type === BUTTON_TYPE.OPERATION
+          && item !== lastKeyDown,
+        'calculator-panel-equals': type === BUTTON_TYPE.EQUALS,
       })}
     >
-      {item.label}
+      {item}
     </div>
   );
 }
 
 PanelItem.propTypes = {
-  item: PropTypes.shape({
-    label: PropTypes.string,
-    type: PropTypes.oneOf([
-      BUTTON_TYPE.ACTION,
-      BUTTON_TYPE.NUMBER,
-      BUTTON_TYPE.OPERATION,
-      BUTTON_TYPE.EQUALS,
-    ]),
-  }),
+  item: PropTypes.string,
+  type: PropTypes.oneOf([
+    BUTTON_TYPE.ACTION,
+    BUTTON_TYPE.NUMBER,
+    BUTTON_TYPE.OPERATION,
+    BUTTON_TYPE.EQUALS,
+  ]),
   lastKeyDown: PropTypes.string,
 };

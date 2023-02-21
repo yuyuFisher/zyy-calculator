@@ -1,4 +1,5 @@
 import BUTTON_TYPE from '../utils/buttonTypes';
+import getButtonType from '../utils/getButtonType';
 import calculate from './calculate';
 import numberAppend from './numberAppend';
 import numberToggle from './numberToggle';
@@ -19,7 +20,7 @@ class CalculatorHelper {
   }
 
   doActionInput(keyItem) {
-    switch (keyItem.label) {
+    switch (keyItem) {
       case 'AC':
         this.clear();
         break;
@@ -45,11 +46,11 @@ class CalculatorHelper {
       startNumber = '';
     }
 
-    this.currentOperand = numberAppend(startNumber, keyItem.label);
+    this.currentOperand = numberAppend(startNumber, keyItem);
   }
 
   doOperationInput(keyItem) {
-    if (this.lastKeyDown === keyItem.label) {
+    if (this.lastKeyDown === keyItem) {
       return;
     }
 
@@ -61,7 +62,7 @@ class CalculatorHelper {
     }
 
     this.lastOperand = result;
-    this.operation = keyItem.label;
+    this.operation = keyItem;
     this.currentOperand = result;
   }
 
@@ -80,7 +81,8 @@ class CalculatorHelper {
   }
 
   keyboardInput(keyItem) {
-    switch (keyItem.type) {
+    const type = getButtonType(keyItem);
+    switch (type) {
       case BUTTON_TYPE.ACTION:
         this.doActionInput(keyItem);
         break;
@@ -96,7 +98,7 @@ class CalculatorHelper {
       default:
         break;
     }
-    this.lastKeyDown = keyItem.label;
+    this.lastKeyDown = keyItem;
     return this;
   }
 }
